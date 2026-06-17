@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>一人公司利润作战台</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="主导航">
+        <div class="brand">
+          <span class="brand-mark">利</span>
+          <span>一人公司利润作战台</span>
+        </div>
+        <nav class="nav-list">
+          <button class="nav-item active" data-section="offers">
+            <span class="nav-icon">□</span>
+            报价
+          </button>
+          <button class="nav-item" data-section="calculator">
+            <span class="nav-icon">⌁</span>
+            测算
+          </button>
+          <button class="nav-item" data-section="scripts">
+            <span class="nav-icon">≡</span>
+            话术
+          </button>
+          <button class="nav-item" data-section="cycle">
+            <span class="nav-icon">↻</span>
+            三天循环
+          </button>
+          <button class="nav-item" data-section="leads">
+            <span class="nav-icon">◎</span>
+            线索
+          </button>
+        </nav>
+        <div class="workspace-switch">
+          <span class="user-dot"></span>
+          我的工作区
+          <span class="chevron">⌄</span>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <h1>一人公司利润作战台</h1>
+            <p>把报价、测算、话术和三天执行循环放在同一张桌面上。</p>
+          </div>
+          <div class="topbar-actions">
+            <label class="period-select">
+              数据周期
+              <select id="periodSelect">
+                <option value="30">最近 30 天</option>
+                <option value="60">最近 60 天</option>
+                <option value="90">最近 90 天</option>
+              </select>
+            </label>
+            <button class="ghost-button" id="resetButton">重置</button>
+            <button class="primary-button" id="generateButton">生成诊断摘要</button>
+          </div>
+        </header>
+
+        <section class="section-block" id="offers">
+          <div class="section-heading">
+            <div>
+              <h2>选择报价模块</h2>
+              <p>四个报价都包含在工具里；先按客户最痛的问题切入口，成交后再进入对应交付路径。</p>
+            </div>
+            <button class="outline-button small" id="copyAllOffersButton">复制全部四个报价</button>
+          </div>
+          <div class="offer-grid" id="offerGrid"></div>
+          <div class="all-offer-list" id="allOfferList" aria-label="四个报价总览"></div>
+        </section>
+
+        <section class="section-block package-block">
+          <div class="section-heading">
+            <div>
+              <h2>完整报价包</h2>
+              <p>从提现、留存、利润还原到结构诊断，覆盖一人公司老板最常见的四个钱的问题。</p>
+            </div>
+            <span class="package-total">¥1280 - ¥1980</span>
+          </div>
+          <div class="package-grid">
+            <div><strong>1</strong><span>合规提现额度测算</span></div>
+            <div><strong>2</strong><span>资金留存清单</span></div>
+            <div><strong>3</strong><span>真实利润还原器</span></div>
+            <div><strong>4</strong><span>利润结构诊断</span></div>
+          </div>
+        </section>
+
+        <section class="main-grid" id="calculator">
+          <div class="panel input-panel">
+            <div class="panel-title">
+              <h2>数据输入区</h2>
+              <span id="autosaveState">已自动保存</span>
+            </div>
+            <form id="calculatorForm" class="input-grid">
+              <label>
+                最近 30 天收入
+                <span class="input-wrap">
+                  <input type="number" min="0" step="100" id="income" placeholder="请输入金额" />
+                  <em>元</em>
+                </span>
+              </label>
+              <label>
+                固定成本
+                <span class="input-wrap">
+                  <input type="number" min="0" step="100" id="fixedCost" placeholder="请输入金额" />
+                  <em>元</em>
+                </span>
+              </label>
+              <label>
+                变动成本
+                <span class="input-wrap">
+                  <input type="number" min="0" step="100" id="variableCost" placeholder="请输入金额" />
+                  <em>元</em>
+                </span>
+              </label>
+              <label>
+                当前余额
+                <span class="input-wrap">
+                  <input type="number" min="0" step="100" id="balance" placeholder="请输入金额" />
+                  <em>元</em>
+                </span>
+              </label>
+              <label>
+                未来 8 周收入
+                <span class="input-wrap">
+                  <input type="number" min="0" step="100" id="futureIncome" placeholder="请输入金额" />
+                  <em>元</em>
+                </span>
+              </label>
+              <label>
+                未来 8 周支出
+                <span class="input-wrap">
+                  <input type="number" min="0" step="100" id="futureExpense" placeholder="请输入金额" />
+                  <em>元</em>
+                </span>
+              </label>
+              <label>
+                交付小时
+                <span class="input-wrap">
+                  <input type="number" min="0" step="1" id="deliveryHours" placeholder="请输入小时数" />
+                  <em>小时</em>
+                </span>
+              </label>
+              <label>
+                客户/项目数量
+                <span class="input-wrap">
+                  <input type="number" min="0" step="1" id="projectCount" placeholder="请输入数量" />
+                  <em>个</em>
+                </span>
+              </label>
+            </form>
+          </div>
+
+          <div class="panel result-panel">
+            <div class="panel-title">
+              <h2>测算结果</h2>
+              <button class="text-button" id="copySummaryButton">复制摘要</button>
+            </div>
+            <div class="score-row">
+              <div class="score-ring" id="scoreRing">--</div>
+              <div>
+                <strong id="scoreLabel">等待输入数据</strong>
+                <p id="scoreHint">录入收入、成本和未来 8 周收支后自动测算。</p>
+              </div>
+            </div>
+            <div class="metric-list">
+              <div class="metric-row">
+                <span>提现参考区间</span>
+                <strong id="withdrawRange">--</strong>
+              </div>
+              <div class="metric-row">
+                <span>需留存资金</span>
+                <strong id="retainFunds">--</strong>
+              </div>
+              <div class="metric-row">
+                <span>估算真实利润</span>
+                <strong id="realProfit">--</strong>
+              </div>
+              <div class="metric-row">
+                <span>老板有效时薪</span>
+                <strong id="hourlyRate">--</strong>
+              </div>
+              <div class="metric-row">
+                <span>推荐报价入口</span>
+                <strong id="recommendedOffer">--</strong>
+              </div>
+            </div>
+            <div class="risk-note" id="riskNote">
+              完成数据输入后，会显示风险提示和下一步动作。
+            </div>
+          </div>
+
+          <div class="panel summary-panel">
+            <div class="panel-title">
+              <h2>报价摘要</h2>
+              <button class="text-button" id="copyOfferButton">复制报价</button>
+            </div>
+            <div class="summary-list" id="offerSummary"></div>
+            <button class="outline-button" id="editClientButton">编辑客户信息</button>
+          </div>
+        </section>
+
+        <section class="panel scripts-panel" id="scripts">
+          <div class="panel-title">
+            <h2>话术库</h2>
+            <span>随报价模块自动切换</span>
+          </div>
+          <div class="tabs" role="tablist" aria-label="话术分类">
+            <button class="tab active" data-tab="opening">私信开场</button>
+            <button class="tab" data-tab="qualify">筛选问题</button>
+            <button class="tab" data-tab="close">成交话术</button>
+            <button class="tab" data-tab="reverse">风险逆转</button>
+            <button class="tab" data-tab="boundary">边界说明</button>
+          </div>
+          <div class="script-box">
+            <p id="scriptText"></p>
+            <div class="script-actions">
+              <button class="ghost-button" id="copyScriptButton">复制话术</button>
+              <button class="primary-button small" id="useScriptButton">标记已使用</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel cycle-panel" id="cycle">
+          <div class="panel-title">
+            <h2>三天循环</h2>
+            <span id="cycleToday">今天：自动计算中</span>
+          </div>
+          <div class="cycle-grid" id="cycleGrid"></div>
+        </section>
+
+        <section class="panel leads-panel" id="leads">
+          <div class="panel-title">
+            <h2>线索作战表</h2>
+            <button class="outline-button small" id="addLeadButton">新增线索</button>
+          </div>
+          <div class="lead-form">
+            <input id="leadName" placeholder="昵称/账号" />
+            <select id="leadPain">
+              <option value="提现额度">提现额度</option>
+              <option value="资金留存">资金留存</option>
+              <option value="真实利润">真实利润</option>
+              <option value="利润结构">利润结构</option>
+            </select>
+            <select id="leadStatus">
+              <option value="未回">未回</option>
+              <option value="已回复">已回复</option>
+              <option value="已深聊">已深聊</option>
+              <option value="已报价">已报价</option>
+              <option value="已付款">已付款</option>
+            </select>
+            <input id="leadNext" placeholder="下一步" />
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>线索</th>
+                  <th>痛点</th>
+                  <th>状态</th>
+                  <th>推荐报价</th>
+                  <th>下一步</th>
+                </tr>
+              </thead>
+              <tbody id="leadTable"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

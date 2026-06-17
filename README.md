@@ -34,6 +34,9 @@
 
 ## 工作区文件
 
+- `index.html`：网页版「一人公司利润作战台」，可直接在浏览器打开。
+- `styles.css`：网页版 app 样式。
+- `app.js`：网页版 app 交互、测算、话术和线索逻辑。
 - `assets/01_offer_one_page.md`：一页式报价。
 - `assets/02_profit_leak_checklist.md`：免费 Lead Magnet。
 - `assets/03_outreach_scripts.md`：冷触达、跟进、成交话术。
@@ -41,6 +44,18 @@
 - `assets/05_sample_case.md`：模拟样板案例。
 - `assets/06_delivery_template.md`：正式交付模板。
 - `outputs/one_person_company_profit_sprint.xlsx`：CRM、KPI、诊断和现金流工作簿。
+
+## 网页版 app
+
+直接打开 `index.html` 即可使用，不需要安装依赖或启动服务器。
+
+核心功能：
+
+1. 四个报价模块切换：合规提现额度测算、资金留存清单、真实利润还原器、利润结构诊断。
+2. 输入收入、成本、余额、未来 8 周收支和交付小时，自动生成提现区间、需留存资金、真实利润和推荐报价入口。
+3. 话术库按报价模块自动切换，支持复制私信开场、筛选问题、成交话术、风险逆转和边界说明。
+4. 三天循环任务自动按日期显示当前执行日。
+5. 线索作战表支持新增线索，并按痛点推荐对应报价。
 
 ## 今日启动顺序
 
