@@ -66,94 +66,27 @@
           <div class="section-heading">
             <div>
               <h2>选择报价模块</h2>
-              <p>四个报价都包含在工具里；先按客户最痛的问题切入口，成交后再进入对应交付路径。</p>
+              <p>先听客户最痛的一句话，只选一个报价入口进入对应交付路径。</p>
             </div>
-            <button class="outline-button small" id="copyAllOffersButton">复制全部四个报价</button>
+            <span class="selection-hint">当前只展示 1 个报价</span>
           </div>
-          <div class="offer-grid" id="offerGrid"></div>
-          <div class="all-offer-list" id="allOfferList" aria-label="四个报价总览"></div>
+          <div class="offer-grid" id="offerGrid" role="tablist" aria-label="选择报价"></div>
         </section>
 
-        <section class="section-block package-block">
-          <div class="section-heading">
-            <div>
-              <h2>完整报价包</h2>
-              <p>从提现、留存、利润还原到结构诊断，覆盖一人公司老板最常见的四个钱的问题。</p>
-            </div>
-            <span class="package-total">¥1280 - ¥1980</span>
-          </div>
-          <div class="package-grid">
-            <div><strong>1</strong><span>合规提现额度测算</span></div>
-            <div><strong>2</strong><span>资金留存清单</span></div>
-            <div><strong>3</strong><span>真实利润还原器</span></div>
-            <div><strong>4</strong><span>利润结构诊断</span></div>
-          </div>
+        <section class="section-block offer-workspace" id="offerWorkspace" tabindex="-1" aria-live="polite">
+          <div id="offerWorkspaceContent"></div>
         </section>
 
         <section class="main-grid" id="calculator">
           <div class="panel input-panel">
             <div class="panel-title">
-              <h2>数据输入区</h2>
+              <div>
+                <h2 id="calculatorTitle">数据输入区</h2>
+                <p id="calculatorHint">仅填写当前报价需要的数据。</p>
+              </div>
               <span id="autosaveState">已自动保存</span>
             </div>
-            <form id="calculatorForm" class="input-grid">
-              <label>
-                最近 30 天收入
-                <span class="input-wrap">
-                  <input type="number" min="0" step="100" id="income" placeholder="请输入金额" />
-                  <em>元</em>
-                </span>
-              </label>
-              <label>
-                固定成本
-                <span class="input-wrap">
-                  <input type="number" min="0" step="100" id="fixedCost" placeholder="请输入金额" />
-                  <em>元</em>
-                </span>
-              </label>
-              <label>
-                变动成本
-                <span class="input-wrap">
-                  <input type="number" min="0" step="100" id="variableCost" placeholder="请输入金额" />
-                  <em>元</em>
-                </span>
-              </label>
-              <label>
-                当前余额
-                <span class="input-wrap">
-                  <input type="number" min="0" step="100" id="balance" placeholder="请输入金额" />
-                  <em>元</em>
-                </span>
-              </label>
-              <label>
-                未来 8 周收入
-                <span class="input-wrap">
-                  <input type="number" min="0" step="100" id="futureIncome" placeholder="请输入金额" />
-                  <em>元</em>
-                </span>
-              </label>
-              <label>
-                未来 8 周支出
-                <span class="input-wrap">
-                  <input type="number" min="0" step="100" id="futureExpense" placeholder="请输入金额" />
-                  <em>元</em>
-                </span>
-              </label>
-              <label>
-                交付小时
-                <span class="input-wrap">
-                  <input type="number" min="0" step="1" id="deliveryHours" placeholder="请输入小时数" />
-                  <em>小时</em>
-                </span>
-              </label>
-              <label>
-                客户/项目数量
-                <span class="input-wrap">
-                  <input type="number" min="0" step="1" id="projectCount" placeholder="请输入数量" />
-                  <em>个</em>
-                </span>
-              </label>
-            </form>
+            <form id="calculatorForm" class="input-grid"></form>
           </div>
 
           <div class="panel result-panel">
@@ -161,35 +94,14 @@
               <h2>测算结果</h2>
               <button class="text-button" id="copySummaryButton">复制摘要</button>
             </div>
-            <div class="score-row">
+            <div class="score-row" id="scoreRow">
               <div class="score-ring" id="scoreRing">--</div>
               <div>
                 <strong id="scoreLabel">等待输入数据</strong>
                 <p id="scoreHint">录入收入、成本和未来 8 周收支后自动测算。</p>
               </div>
             </div>
-            <div class="metric-list">
-              <div class="metric-row">
-                <span>提现参考区间</span>
-                <strong id="withdrawRange">--</strong>
-              </div>
-              <div class="metric-row">
-                <span>需留存资金</span>
-                <strong id="retainFunds">--</strong>
-              </div>
-              <div class="metric-row">
-                <span>估算真实利润</span>
-                <strong id="realProfit">--</strong>
-              </div>
-              <div class="metric-row">
-                <span>老板有效时薪</span>
-                <strong id="hourlyRate">--</strong>
-              </div>
-              <div class="metric-row">
-                <span>推荐报价入口</span>
-                <strong id="recommendedOffer">--</strong>
-              </div>
-            </div>
+            <div class="metric-list" id="metricList"></div>
             <div class="risk-note" id="riskNote">
               完成数据输入后，会显示风险提示和下一步动作。
             </div>
