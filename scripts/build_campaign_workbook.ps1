@@ -200,17 +200,17 @@ $styles = @'
 Set-Content -LiteralPath (Join-Path $BuildDir "xl\styles.xml") -Value $styles -Encoding UTF8
 
 $dashboardRows = @(
-  @((Cell "一人公司利润体检冲刺 Dashboard - 目标：14 天收款 5000 元以上；默认 4 单 × 1299 元" "s" 1)),
+  @((Cell "十二周年#021：第二收入赚10万元 Dashboard - 目标：2026-10-03 前累计赚 100000 元" "s" 1)),
   @(""),
   @((Cell "指标" "s" 2),(Cell "当前值" "s" 2),"",(Cell "漏斗指标" "s" 2),(Cell "当前值" "s" 2),"",(Cell "状态色" "s" 2),(Cell "含义" "s" 2)),
-  @("收款目标",(Cell 5000 "n" 3),"","回复率",(Cell "=IF(B7=0,0,B8/B7)" "f" 4),"","OK","达标"),
+  @("收款目标",(Cell 100000 "n" 3),"","回复率",(Cell "=IF(B7=0,0,B8/B7)" "f" 4),"","OK","达标"),
   @("已收款",(Cell "=SUM(CRM!L4:L703)" "f" 3),"","清单领取率",(Cell "=IF(B8=0,0,B9/B8)" "f" 4),"","继续冲刺","未到终点"),
   @("距离目标",(Cell "=MAX(0,B4-B5)" "f" 3),"","深聊率",(Cell "=IF(B7=0,0,B10/B7)" "f" 4),"","改价/改人群","触达策略需调整"),
   @("有效触达",(Cell "=COUNTA(CRM!B4:B703)" "f" 0),"","付款转化率",(Cell "=IF(B7=0,0,B11/B7)" "f" 4),"","需要首个交付","缺少样板反馈"),
   @("回复数",(Cell '=COUNTIF(CRM!F4:F703,"<>未回")-COUNTIF(CRM!F4:F703,"无效")' "f" 0),"","平均客单价",(Cell "=IF(B11=0,0,B5/B11)" "f" 3),"","",""),
   @("领取清单",(Cell '=COUNTIF(CRM!G4:G703,"是")' "f" 0),"","Day 4 状态",(Cell '=IF(AND(SUM(Daily_KPI!E4:E7)>=200,SUM(Daily_KPI!F4:F7)>=15,OR(B11>=1,COUNTIF(CRM!F4:F703,"已报价")>=3)),"OK","改价/改人群")' "f" 0),"","注意","客户数据请手动录入 CRM"),
   @("深聊/报价/付款",(Cell '=COUNTIF(CRM!F4:F703,"已深聊")+COUNTIF(CRM!F4:F703,"已报价")+COUNTIF(CRM!F4:F703,"已付款")+COUNTIF(CRM!F4:F703,"已交付")' "f" 0),"","Day 7 状态",(Cell '=IF(COUNTIF(CRM!N4:N703,"已交付")>=1,"OK","需要首个交付")' "f" 0),"","",""),
-  @("付款单数",(Cell '=COUNTIF(CRM!F4:F703,"已付款")+COUNTIF(CRM!F4:F703,"已交付")' "f" 0),"","最终状态",(Cell '=IF(B5>=5000,"OK","继续冲刺")' "f" 0),"","",""),
+  @("付款单数",(Cell '=COUNTIF(CRM!F4:F703,"已付款")+COUNTIF(CRM!F4:F703,"已交付")' "f" 0),"","最终状态",(Cell '=IF(B5>=100000,"OK","继续冲刺")' "f" 0),"","",""),
   @(""),
   @((Cell "执行提醒" "s" 2)),
   @((Cell "每天 50 个有效触达；有回复先发自查清单，再问 3 个诊断问题。" "s" 9)),
