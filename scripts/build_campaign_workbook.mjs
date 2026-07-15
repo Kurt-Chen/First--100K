@@ -168,10 +168,10 @@ daily.freezePanes.freezeRows(3);
 setWidths(daily, { A: 58, B: 105, C: 130, D: 82, E: 82, F: 74, G: 74, H: 74, I: 100, J: 220, K: 260 });
 
 // Dashboard
-setTitle(dashboard, "A1:H1", "一人公司利润体检冲刺 Dashboard", "目标：14 天收款 5000 元以上；默认 4 单 × 1299 元");
+setTitle(dashboard, "A1:H1", "十二周年#021：第二收入赚10万元 Dashboard", "目标：2026-10-03 前累计赚 100000 元");
 dashboard.getRange("A3:B11").values = [
   ["指标", "当前值"],
-  ["收款目标", 5000],
+  ["收款目标", 100000],
   ["已收款", ""],
   ["距离目标", ""],
   ["有效触达", ""],
@@ -208,7 +208,7 @@ dashboard.getRange("E7").formulas = [["=IF(B7=0,0,B11/B7)"]];
 dashboard.getRange("E8").formulas = [["=IF(B11=0,0,B5/B11)"]];
 dashboard.getRange("E9").formulas = [["=IF(AND(SUM(Daily_KPI!E4:E7)>=200,SUM(Daily_KPI!F4:F7)>=15,OR(B11>=1,COUNTIF(CRM!F4:F703,\"已报价\")>=3)),\"OK\",\"改价/改人群\")"]];
 dashboard.getRange("E10").formulas = [["=IF(COUNTIF(CRM!N4:N703,\"已交付\")>=1,\"OK\",\"需要首个交付\")"]];
-dashboard.getRange("E11").formulas = [["=IF(B5>=5000,\"OK\",\"继续冲刺\")"]];
+dashboard.getRange("E11").formulas = [["=IF(B5>=100000,\"OK\",\"继续冲刺\")"]];
 styleHeader(dashboard.getRange("D3:E3"), theme.navy);
 styleBlock(dashboard.getRange("D4:E11"), theme.white);
 dashboard.getRange("E4:E7").setNumberFormat("0.0%");
