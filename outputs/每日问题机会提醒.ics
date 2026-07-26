@@ -1,0 +1,64 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//First 100K//Daily Opportunity Practice//ZH-CN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:每日问题机会训练
+X-WR-TIMEZONE:Asia/Shanghai
+BEGIN:VTIMEZONE
+TZID:Asia/Shanghai
+X-LIC-LOCATION:Asia/Shanghai
+BEGIN:STANDARD
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+TZNAME:CST
+DTSTART:19700101T000000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:morning-opportunity-practice-20260727@first100k.local
+DTSTAMP:20260726T000000Z
+DTSTART;TZID=Asia/Shanghai:20260727T090000
+DURATION:PT20M
+RRULE:FREQ=DAILY
+SUMMARY:一人公司：收集3个真实问题
+DESCRIPTION:问题=机会。\n\n今天上午：
+ \n1. 收集3个一人公司真实问题：谁遇到、什么场景、
+ 造成什么损失、现在如何解决。
+ \n2. 按价值方程评估潜力：
+ 梦想结果×实现可能性÷等待时间×努力与牺牲。
+ \n3. 选出1个最值得验证、客户最容易触达的问题。
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:收集3个一人公司问题，评估潜力，
+ 选出1个报价机会。
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:afternoon-offer-test-20260727@first100k.local
+DTSTAMP:20260726T000000Z
+DTSTART;TZID=Asia/Shanghai:20260727T150000
+DURATION:PT30M
+RRULE:FREQ=DAILY
+SUMMARY:一人公司：制作报价并完成测试
+DESCRIPTION:今天下午：\n1. 为上午选中的一人公司问题
+ 制作1个大满贯报价：明确目标客户、梦想结果、
+ 完成期限、
+ 低阻力方案、保证、奖励和价格。\n2. 联系5位目标客户
+ 完成最小测试。\n3. 当前目标：筛选首批3位
+ 免费样板客户，以提交真实经营数据并预约解读
+ 为有效信号。\n\n不要追求完整产品，先
+ 验证客户是否愿意行动。
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:PT0M
+ACTION:DISPLAY
+DESCRIPTION:制作1个一人公司报价，并联系5位目标客户
+ 完成最小测试。
+END:VALARM
+END:VEVENT
+END:VCALENDAR

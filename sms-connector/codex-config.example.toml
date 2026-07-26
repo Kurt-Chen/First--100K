@@ -1,0 +1,14 @@
+# 将下面内容合并到项目的 .codex/config.toml，或添加到个人 Codex 配置。
+# Windows 路径使用正斜杠，避免转义问题。
+
+[mcp_servers.mainland_sms_reminder]
+command = "powershell.exe"
+args = [
+  "-NoProfile",
+  "-ExecutionPolicy",
+  "Bypass",
+  "-File",
+  "D:/Codex/第一个10万元/sms-connector/scripts/start-mcp.ps1",
+]
+
+# 敏感变量不要直接写在这个文件里。启动脚本会读取已被 Git 忽略的 .env.local。

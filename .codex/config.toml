@@ -1,0 +1,9 @@
+[mcp_servers.mainland_sms_reminder]
+command = "powershell.exe"
+args = [
+  "-NoProfile",
+  "-ExecutionPolicy",
+  "Bypass",
+  "-File",
+  "D:/Codex/第一个10万元/sms-connector/scripts/start-mcp.ps1",
+]
